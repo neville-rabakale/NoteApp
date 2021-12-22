@@ -9,20 +9,26 @@ using NoteApp.Model;
 
 namespace NoteApp.Pages.Notes
 {
+    //Inhertit Page model as index model
     public class IndexModel : PageModel
     {
-        private readonly NoteApp.Model.ApplicationDbContext _context;
-
-        public IndexModel(NoteApp.Model.ApplicationDbContext context)
+        //invoke private db object of type ApplicationDbContext
+        private readonly NoteApp.Model.ApplicationDbContext _db;
+        //Function that calls index model with db as input
+        public IndexModel(NoteApp.Model.ApplicationDbContext db)
         {
-            _context = context;
+            //private db as public db
+            _db = db;
         }
 
+        //NoteModel object
         public IList<NoteModel> NoteModel { get;set; }
 
+        //get for Index
         public async Task OnGetAsync()
         {
-            NoteModel = await _context.NoteModel.ToListAsync();
+            //call index note model from db
+            NoteModel = await _db.NoteModel.ToListAsync();
         }
     }
 }
