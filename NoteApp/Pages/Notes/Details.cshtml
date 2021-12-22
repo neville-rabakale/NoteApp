@@ -1,0 +1,43 @@
+﻿@page
+@model NoteApp.Pages.Notes.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<h4>Notes</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes.Date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.Notes.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Notes.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Notes.Date)
+                </td>
+            </tr>
+    </tbody>
+</table>
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
