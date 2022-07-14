@@ -26,7 +26,7 @@ namespace NoteApp
         public void ConfigureServices(IServiceCollection services)
         {
             //add db services
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["DefaultConnection"]));
             services.AddRazorPages();
         }
 
